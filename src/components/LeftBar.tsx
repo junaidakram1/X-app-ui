@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "./Image";
 
 const menuList = [
   {
@@ -69,17 +70,22 @@ const LeftBar = () => {
       <div className="flex flex-col gap-4 text-md items-center xxl:items-start">
         {/* Logo */}
         <Link href="/" className="p-2 rounded-full hover:bg-[#181818] ">
-          <img src="/icons/logo.svg" alt="" />{" "}
+          <Image path="public/icons/logo.svg" alt="logo" w={24} h={24} />
         </Link>
         {/* Sidebar */}
         <div className="flex flex-col gap-4">
-          {menuList.map((item) => (
+          {menuList.slice(0, 7).map((item) => (
             <Link
               href={item.link}
               className="p-2 rounded-full hover:bg-[#181818] flex items-center gap-4"
               key={item.id}
             >
-              <img src="/icons/logo.svg" alt="" />
+              <Image
+                path={`public/icons/${item.icon}`}
+                alt={item.name}
+                w={28}
+                h={28}
+              />
               <span className="hidden xxl:inline ">{item.name}</span>
             </Link>
           ))}
@@ -89,7 +95,7 @@ const LeftBar = () => {
           href="/compose/post"
           className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xxl:hidden"
         >
-          <img src="icons/post.svg" alt="" />{" "}
+          <Image path="public/icons/post.svg" alt="new post" w={26} h={26} />
         </Link>
         <Link
           href="/compose/post"
@@ -101,8 +107,17 @@ const LeftBar = () => {
       {/* User */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 relative rounded-full overflow-hidden"></div>
-          <div className="hidden xxl:flex flex-col xxl:-ml-6 xxl:mt-4">
+          <div className="w-10 h-10 relative rounded-full overflow-hidden mt-4 ml-0.5 xxl:-ml-4">
+            {" "}
+            <Image
+              path="public/general/post.jpeg"
+              alt="jun"
+              w={100}
+              h={100}
+              tr={true}
+            />
+          </div>
+          <div className="hidden xxl:flex flex-col xxl:-ml-6 xxl:mt-4 xxl:ml-2">
             <span className="font-bold">Junidepp</span>
             <span className="text-sm text-textGray">@junaidakram1</span>
           </div>
