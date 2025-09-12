@@ -14,7 +14,7 @@ export default {
         md: "690px",
         lg: "988px",
         xl: "1078px",
-        xxl: "1265px",
+        xxl: "1300px",
       },
       colors: {
         textGray: "#71767b",
