@@ -1,6 +1,7 @@
 import Image from "./Image";
 import Link from "next/link";
 import PostInfo from "./PostInfo";
+import PostInteractions from "./PostInteractions";
 
 interface FileDetailsResponse {
   width: number;
@@ -95,7 +96,7 @@ const Post = async ({ type }: { type?: "status" | "comment" }) => {
               path="public/general/post.jpeg"
               alt=""
               w={600}
-              h={600}
+              h={400}
               className="object-cover"
             />
           </div>
@@ -103,6 +104,7 @@ const Post = async ({ type }: { type?: "status" | "comment" }) => {
           {type === "status" && (
             <span className="text-textGray">5:35 AM · Sep 13, 2025</span>
           )}
+          <PostInteractions />
         </div>
       </div>
     </div>
