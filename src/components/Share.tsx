@@ -12,6 +12,9 @@ const Share = () => {
       setMedia(e.target.files[0]);
     }
   };
+
+  const previewURL = media ? URL.createObjectURL(media) : null;
+
   return (
     <form action={shareAction} className="p-4 flex gap-4">
       {/* Profile Photo */}
@@ -24,7 +27,7 @@ const Share = () => {
           tr={true}
         />
       </div>
-      {/* Others */}
+      {/* Other Setting */}
       <div className="flex-1 flex flex-col gap-4">
         <input
           type="text"

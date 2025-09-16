@@ -2,6 +2,7 @@ import Image from "./Image";
 import Link from "next/link";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
+import { imagekit } from "@/utils";
 
 interface FileDetailsResponse {
   width: number;
@@ -13,6 +14,22 @@ interface FileDetailsResponse {
 }
 
 const Post = async ({ type }: { type?: "status" | "comment" }) => {
+  const getFileDetails = async (
+    fileId: string
+  ): Promise<FileDetailsResponse> => {
+    return new Promise((resolve, reject) => {
+      imagekit.getFileDetails(fileId, (error, result) => {
+        if (error) {
+          reject(error);
+        } else if (result) {
+          resolve(result);
+        }
+      });
+    });
+  };
+  const fileDetails = await getFileDetails("68c8797f5c7cd75eb81e0cf0");
+
+  console.log(fileDetails);
   return (
     <div className="p-4 border-y-[1px] border-borderGray">
       {/* POST TYPE */}
@@ -92,13 +109,17 @@ const Post = async ({ type }: { type?: "status" | "comment" }) => {
             </p>
           </Link>
           <div className="rounded-lg overflow-hidden mt-2">
-            <Image
-              path="public/general/post.jpeg"
-              alt=""
-              w={600}
-              h={400}
-              className="object-cover"
-            />
+            {fileDetails?.fileType === "image" && (
+              <Image
+                path={fileDetails.filePath}
+                alt=""
+                w={fileDetails.width}
+                h={fileDetails.height}
+                className={
+                  fileDetails.customMetadata?.sensitive ? "blur-lg" : ""
+                }
+              />
+            )}
           </div>
 
           {type === "status" && (
