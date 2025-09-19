@@ -25,7 +25,10 @@ const Share = () => {
   const previewURL = media ? URL.createObjectURL(media) : null;
 
   return (
-    <form action={shareAction} className="p-4 flex gap-4">
+    <form
+      action={(formData) => shareAction(formData, settings)}
+      className="p-4 flex gap-4"
+    >
       {/* Profile Photo */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden">
         <Image
