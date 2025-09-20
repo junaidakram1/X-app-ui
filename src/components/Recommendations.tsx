@@ -18,9 +18,8 @@ const Recommendations = () => {
             />
           </div>
           <div className="">
-            <h1 className="text-md font-bold">Muhammad Junaid Akram</h1>
+            <h1 className="text-md font-bold">Junaid Akram</h1>
             <span className="text-textGray text-sm">@junaidakram1</span>
-            <span className="text-textGray text-lg">Privated Limited</span>
           </div>
         </div>
         {/* Follow */}
@@ -33,7 +32,7 @@ const Recommendations = () => {
         <div className="flex items-center gap-2">
           <div className="relative rounded-full overflow-hidden w-10 h-10">
             <Image
-              path="pubic/general/avatar.jpg"
+              path="public/general/avatar.jpg"
               alt="John Doe"
               w={100}
               h={100}
