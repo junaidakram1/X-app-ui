@@ -13,19 +13,19 @@ const PostModal = () => {
   return (
     <div className="absolute w-screen h-screen top-0 left-0 z-20 bg-[#293139a6] flex justify-center">
       <div className="py-4 px-8 rounded-xl bg-black w-[600px] h-max mt-12">
-        {/* Top Section */}
+        {/* TOP */}
         <div className="flex items-center justify-between">
           <div className="cursor-pointer" onClick={closeModal}>
             X
           </div>
           <div className="text-iconBlue font-bold">Drafts</div>
         </div>
-        {/* Center Section */}
+        {/* CENTER */}
         <div className="py-8 flex gap-4">
           <div className="relative w-10 h-10 rounded-full overflow-hidden">
             <Image
               path="public/general/avatar.jpg"
-              alt="Lama Dev"
+              alt="Junidepp"
               w={100}
               h={100}
               tr={true}
@@ -37,7 +37,7 @@ const PostModal = () => {
             placeholder="What is happening?!"
           />
         </div>
-        {/* Bottom Section */}
+        {/* BOTTOM */}
         <div className=" flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4">
           <div className="flex gap-4 flex-wrap">
             <Image

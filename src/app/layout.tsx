@@ -4,10 +4,10 @@ import RightBar from "@/components/RightBar";
 
 export default function RootLayout({
   children,
-  model,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
-  model: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -18,7 +18,7 @@ export default function RootLayout({
           </div>
           <div className="flex-1 lg:min-w-[650px] border-x-[1px] border-borderGray ">
             {children}
-            {model}
+            {modal}
           </div>
           <div className="hidden lg:flex ml-4 md:ml-8 flex-1 ">
             <RightBar />
